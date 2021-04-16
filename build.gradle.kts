@@ -4,18 +4,18 @@ plugins {
     id("com.android.application") apply false
     id("com.android.library") apply false
     kotlin("android") apply false
-    id("io.gitlab.arturbosch.detekt") version BuildPluginsVersion.DETEKT
-    id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT
-    id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
+    id("io.gitlab.arturbosch.detekt") version Version.pluginDetekt
+    id("org.jlleitschuh.gradle.ktlint") version Version.pluginKtlint
+    id("com.github.ben-manes.versions") version Version.pluginBenManesVersions
     cleanup
 }
 
 allprojects {
-    group = PUBLISHING_GROUP
+    group = "com.github.owner.template"
     repositories {
-        google()
         mavenCentral()
-        jcenter()
+        google()
+        jcenter()   // JCenter is at end of life
     }
 }
 
@@ -28,7 +28,7 @@ subprojects {
 
     ktlint {
         debug.set(false)
-        version.set(Versions.KTLINT)
+        version.set(Version.ktlint)
         verbose.set(true)
         android.set(false)
         outputToConsole.set(true)

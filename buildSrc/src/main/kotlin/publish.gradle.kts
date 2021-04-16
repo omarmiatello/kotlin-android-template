@@ -2,7 +2,7 @@ import com.android.build.gradle.LibraryExtension
 import org.gradle.api.tasks.bundling.Jar
 
 /**
- * Precompiled script plugin from:
+ * Credits - Precompiled script plugin from:
  * https://github.com/cortinico/kotlin-android-template/blob/master/buildSrc/src/main/kotlin/publish.gradle.kts
  *
  * The following plugin tasks care of setting up:
@@ -93,7 +93,7 @@ afterEvaluate {
                         version = "$version-SNAPSHOT"
                     }
                     description.set("A template for Kotlin Android projects")
-                    url.set("https://github.com/cortinico/kotlin-android-template/")
+                    url.set("https://github.com/owner/template/")
 
                     licenses {
                         license {
@@ -103,18 +103,18 @@ afterEvaluate {
                     }
                     developers {
                         developer {
-                            id.set("cortinico")
-                            name.set("Nicola Corti")
+                            id.set("owner")
+                            name.set("owner") // name + surname
                         }
                     }
                     scm {
-                        connection.set("scm:git:git://github.com/cortinico/kotlin-android-template.git")
-                        developerConnection.set("scm:git:ssh://github.com/cortinico/kotlin-android-template.git")
-                        url.set("https://github.com/cortinico/kotlin-android-template/")
+                        connection.set("scm:git:git://github.com/owner/template.git")
+                        developerConnection.set("scm:git:ssh://github.com/owner/template.git")
+                        url.set("https://github.com/owner/template/")
                     }
                     issueManagement {
                         system.set("GitHub Issues")
-                        url.set("https://github.com/cortinico/kotlin-android-template/issues")
+                        url.set("https://github.com/owner/template/issues")
                     }
                 }
             }

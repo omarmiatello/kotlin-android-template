@@ -4,23 +4,30 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Sdk.COMPILE_SDK_VERSION)
+    compileSdkVersion(Sdk.compile)
 
     defaultConfig {
-        minSdkVersion(Sdk.MIN_SDK_VERSION)
-        targetSdkVersion(Sdk.TARGET_SDK_VERSION)
+        minSdkVersion(Sdk.min)
+        targetSdkVersion(Sdk.target)
 
-        applicationId = AppCoordinates.APP_ID
-        versionCode = AppCoordinates.APP_VERSION_CODE
-        versionName = AppCoordinates.APP_VERSION_NAME
+        applicationId = "com.github.owner.template.app"
+        versionCode = 1
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
-        viewBinding = true
+        compose = true
+    }
+    kotlinOptions {
+        jvmTarget = Version.java
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn" // for Jetpack Compose
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.compose
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.toVersion(Version.java)
+        targetCompatibility = JavaVersion.toVersion(Version.java)
     }
     buildTypes {
         getByName("release") {
@@ -32,38 +39,39 @@ android {
         }
     }
 
-    lintOptions {
+    lint {
+        disable("ObsoleteLintCustomCheck")
+
         isWarningsAsErrors = true
         isAbortOnError = true
     }
 
-    // Use this block to configure different flavors
-//    flavorDimensions("version")
-//    productFlavors {
-//        create("full") {
-//            dimension = "version"
-//            applicationIdSuffix = ".full"
-//        }
-//        create("demo") {
-//            dimension = "version"
-//            applicationIdSuffix = ".demo"
-//        }
-//    }
+    /**
+     * Use this block to configure different flavors
+     */
+    // flavorDimensions("version")
+    // productFlavors {
+    //     create("full") {
+    //         dimension = "version"
+    //         applicationIdSuffix = ".full"
+    //     }
+    //     create("demo") {
+    //         dimension = "version"
+    //         applicationIdSuffix = ".demo"
+    //     }
+    // }
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-
     implementation(project(":library-android"))
     implementation(project(":library-kotlin"))
 
-    implementation(SupportLibs.ANDROIDX_APPCOMPAT)
-    implementation(SupportLibs.ANDROIDX_CONSTRAINT_LAYOUT)
-    implementation(SupportLibs.ANDROIDX_CORE_KTX)
+    implementation(Lib.androidxAppcompat)
+    implementation(Lib.androidxCoreKtx)
+    LibGroup.composeAll.forEach { implementation(it) }
+    LibGroup.composeDebug.forEach { debugImplementation(it) }
 
-    testImplementation(TestingLib.JUNIT)
+    testImplementation(Lib.testJunit)
 
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RULES)
-    androidTestImplementation(AndroidTestingLib.ESPRESSO_CORE)
+    LibGroup.testAndroid.forEach { androidTestImplementation(it) }
 }

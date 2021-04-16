@@ -1,4 +1,4 @@
-version = LibraryAndroidCoordinates.LIBRARY_VERSION
+version = "1.0.0"
 
 plugins {
     id("com.android.library")
@@ -8,14 +8,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Sdk.COMPILE_SDK_VERSION)
+    compileSdkVersion(Sdk.compile)
 
     defaultConfig {
-        minSdkVersion(Sdk.MIN_SDK_VERSION)
-        targetSdkVersion(Sdk.TARGET_SDK_VERSION)
+        minSdkVersion(Sdk.min)
+        targetSdkVersion(Sdk.target)
 
-        versionCode = LibraryAndroidCoordinates.LIBRARY_VERSION_CODE
-        versionName = LibraryAndroidCoordinates.LIBRARY_VERSION
+        versionCode = 1
+        versionName = version.toString()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -43,13 +43,10 @@ android {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
+    implementation(Lib.androidxAppcompat)
+    implementation(Lib.androidxCoreKtx)
 
-    implementation(SupportLibs.ANDROIDX_APPCOMPAT)
-    implementation(SupportLibs.ANDROIDX_CORE_KTX)
+    testImplementation(Lib.testJunit)
 
-    testImplementation(TestingLib.JUNIT)
-
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RUNNER)
-    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
+    LibGroup.testAndroid.forEach { androidTestImplementation(it) }
 }

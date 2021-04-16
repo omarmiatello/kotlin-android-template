@@ -1,4 +1,4 @@
-version = LibraryKotlinCoordinates.LIBRARY_VERSION
+version = "1.0.0"
 
 plugins {
     id("java-library")
@@ -8,9 +8,7 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-
-    testImplementation(TestingLib.JUNIT)
+    testImplementation(Lib.testJunit)
 }
 
 java {

@@ -1,6 +1,8 @@
-# kotlin-android-template 🤖
+# android-template 🤖
 
-[![Use this template](https://img.shields.io/badge/from-kotlin--android--template-brightgreen?logo=dropbox)](https://github.com/cortinico/kotlin-android-template/generate) ![Pre Merge Checks](https://github.com/cortinico/kotlin-android-template/workflows/Pre%20Merge%20Checks/badge.svg)  ![License](https://img.shields.io/github/license/cortinico/kotlin-android-template.svg) ![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
+[![Use this template](https://img.shields.io/badge/from-kotlin--android--template-brightgreen?logo=dropbox)](https://github.com/omarmiatello/android-template/generate) ![Pre Merge Checks](https://github.com/omarmiatello/android-template/workflows/Pre%20Merge%20Checks/badge.svg)  ![License](https://img.shields.io/github/license/omarmiatello/android-template.svg) ![Language](https://img.shields.io/github/languages/top/omarmiatello/android-template?color=blue&logo=kotlin)
+
+**This project is based and inspired by https://github.com/cortinico/kotlin-android-template (thanks @cortinico) - original branch [cortinico/kotlin-android-template](https://github.com/omarmiatello/android-template/tree/github/cortinico%2Fkotlin-android-template)**
 
 A simple Github template that lets you create an **Android/Kotlin** project and be up and running in a **few seconds**. 
 
@@ -8,12 +10,9 @@ This template is focused on delivering a project with **static analysis** and **
 
 ## How to use 👣
 
-Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/cortinico/kotlin-android-template/generate) button to create a new repo starting from this template.
+Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/omarmiatello/android-template/generate) button to create a new repo starting from this template.
 
-Once created don't forget to update the:
-- [App ID](buildSrc/src/main/java/Coordinates.kt)
-- AndroidManifest ([here](app/src/main/AndroidManifest.xml) and [here](library-android/src/main/AndroidManifest.xml))
-- Package of the source files
+Once created, an automatic job (from GitHub Actions) should initialize your repository.
 
 ## Features 🎨
 
@@ -42,7 +41,7 @@ This template is also using [**detekt**](https://github.com/detekt/detekt) to an
 
 ## CI ⚙️
 
-This template is using [**GitHub Actions**](https://github.com/cortinico/kotlin-android-template/actions) as CI. You don't need to setup any external service and you should have a running CI once you start using this template.
+This template is using [**GitHub Actions**](https://github.com/omarmiatello/android-template/actions) as CI. You don't need to setup any external service and you should have a running CI once you start using this template.
 
 There are currently the following workflows available:
 - [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum

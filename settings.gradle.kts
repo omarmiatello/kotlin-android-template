@@ -11,13 +11,13 @@ pluginManagement {
     }
     repositories {
         gradlePluginPortal()
-        google()
         mavenCentral()
-        jcenter()
+        google()
+        jcenter()   // JCenter is at end of life
     }
 }
 
-rootProject.name = ("kotlin-android-template")
+rootProject.name = "android-template"
 
 include(
     "app",

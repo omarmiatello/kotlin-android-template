@@ -1,22 +1,23 @@
 plugins {
     `kotlin-dsl`
 }
+
 repositories {
-    jcenter()
+    mavenCentral()
     google()
+    jcenter()   // JCenter is at end of life
 }
 
-kotlinDslPluginOptions.experimentalWarning.set(false)
-
-object Plugins {
-    const val AGP = "4.1.3"
-    const val DOKKA = "1.4.20"
-    const val KOTLIN = "1.4.31"
+object VersionIn {
+    const val androidGradlePlugin = "7.0.0-alpha14"
+    const val kotlin = "1.4.32"
+    const val dokka = "1.4.20"
 }
+
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Plugins.KOTLIN}")
-    implementation("com.android.tools.build:gradle:${Plugins.AGP}")
-    implementation("org.jetbrains.dokka:dokka-gradle-plugin:${Plugins.DOKKA}")
-    implementation("org.jetbrains.dokka:dokka-core:${Plugins.DOKKA}")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${VersionIn.kotlin}")
+    implementation("com.android.tools.build:gradle:${VersionIn.androidGradlePlugin}")
+    implementation("org.jetbrains.dokka:dokka-gradle-plugin:${VersionIn.dokka}")
+    implementation("org.jetbrains.dokka:dokka-core:${VersionIn.dokka}")
 }
